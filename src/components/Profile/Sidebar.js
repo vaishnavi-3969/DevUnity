@@ -1,13 +1,14 @@
 import React from "react";
 import { FaUserCircle, FaHome, FaIgloo, FaRocketchat } from "react-icons/fa";
+import ProfileCard from "./ProfileCard";
 
 export default function Sidebar() {
     return (
         <div className="flex">
             <div className="flex flex-col h-screen p-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-400 text-white shadow w-60">
                 <div className="space-y-3">
-                    <div className="flex items-center py-5 px-10">
-                        <h1 className="text-xl font-bold">Dashboard</h1>
+                    <div className="flex items-center py-5 px-2">
+                        <h1 className="text-3xl font-bold">Dashboard</h1>
                     </div>
                     <div className="flex-1">
                         <ul className="pt-2 pb-4 space-y-1 text-sm">
@@ -74,9 +75,6 @@ export default function Sidebar() {
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div>
-                
             </div>
         </div>
     );
