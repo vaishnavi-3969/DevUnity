@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Navbar from "./components/Home/Navbar";
+import Profile from "./components/Profile/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home/>} exact/>
+          <Route path="/profile" element={<Profile/>} exact/>
         </Routes>
         <div>
           {isAuthenticated && <Navbar/>}
