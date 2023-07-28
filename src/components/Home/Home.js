@@ -4,11 +4,15 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { BsHeart, BsChat } from 'react-icons/bs';
 import { FiLogOut } from 'react-icons/fi'; 
 import Logo from '../../assets/logo.png';
+import Navbar from './Navbar';
+import Suggestions from './Suggestions';
+import Stories from './Stories';
 
 const Home = () => {
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
   const [posts, setPosts] = useState([]);
   const [showLogin, setShowLogin] = useState(true);
+ 
 
   const samplePosts = [
     {
@@ -77,6 +81,12 @@ const Home = () => {
           </div>
         </div>
       </div>
+      
+      {/* Stories */}
+      {isAuthenticated && <Stories/>} 
+      
+       {/* Stories */}
+      {isAuthenticated && <Suggestions />}
 
       {/* Posts */}
       {isAuthenticated && (
@@ -91,7 +101,7 @@ const Home = () => {
             {posts.map((post) => (
               <motion.div
                 key={post.id}
-                whileHover={{ scale: 1.03, shadow: '0px 6px 12px rgba(0, 0, 0, 0.1)' }}
+                whileHover={{ scale: 1.03, y: -5, boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.1)' }}
                 className="post bg-gray-100 p-6 rounded-md"
               >
                 <div className="post-header flex items-center mb-4">
@@ -106,11 +116,11 @@ const Home = () => {
                 <div className="post-actions mt-4 flex items-center">
                   <button className="flex items-center text-blue-500 font-bold mr-4">
                     <BsHeart className="mr-1" />
-                    Like
+                    Like ({post.likes})
                   </button>
                   <button className="flex items-center text-blue-500 font-bold">
                     <BsChat className="mr-1" />
-                    Comment
+                    Comment ({post.comments})
                   </button>
                 </div>
               </motion.div>
@@ -118,6 +128,7 @@ const Home = () => {
           </div>
         </div>
       )}
+      
     </div>
   );
 };
