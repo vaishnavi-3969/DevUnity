@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useAuth0 } from '@auth0/auth0-react';
 import { BsHeart, BsChat } from 'react-icons/bs';
-import { FiLogOut } from 'react-icons/fi'; // Import logout icon
+import { FiLogOut } from 'react-icons/fi'; 
 import Logo from '../../assets/logo.png';
 
 const Home = () => {
@@ -34,7 +34,7 @@ const Home = () => {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* Hero */}
       <div className="hero-section bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-20 px-10 relative">
         <div className="container mx-auto">
           <div className="text-center">
@@ -78,7 +78,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Posts Section */}
+      {/* Posts */}
       {isAuthenticated && (
         <div className="posts-section bg-white py-10 px-10">
           <button
