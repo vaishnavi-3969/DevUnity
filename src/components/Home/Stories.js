@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiX } from 'react-icons/fi';
+import '../../index.css';
 
 const Stories = () => {
   const sampleStories = [
@@ -48,11 +49,12 @@ const Stories = () => {
       },    
   ];
 
-  
   const [currentStory, setCurrentStory] = useState(null);
+  const [viewedStories, setViewedStories] = useState([]);
 
   const handleStoryClick = (videoUrl) => {
     setCurrentStory(videoUrl);
+    setViewedStories((prev) => [...prev, videoUrl]);
   };
 
   const handleCloseStory = () => {
@@ -64,7 +66,7 @@ const Stories = () => {
     if (currentStory) {
       timer = setTimeout(() => {
         handleCloseStory();
-      }, 10000); 
+      }, 10000);
     }
     return () => clearTimeout(timer);
   }, [currentStory]);
@@ -73,20 +75,28 @@ const Stories = () => {
     <>
       <div>
         <div>
-          <h2 className="text-lg font-bold mb-4 px-6 py-4">Stories</h2>
+          <h2 className="text-lg font-bold mb-4 px-6 py-3">Stories</h2>
         </div>
         <div className="stories-section bg-white py-4 px-6 flex overflow-x-auto">
-          {sampleStories.map((story) => (
+          {sampleStories.map((story, index) => (
             <motion.div
               key={story.id}
-              whileHover={{ scale: 1.1 }}
-              className="story bg-gray-100 rounded-md p-4 mr-4 cursor-pointer"
+              initial={{ y: -100 }} 
+              animate={{ y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }} 
+              className={`story story-card rounded-md p-4 mr-4 cursor-pointer ${
+                viewedStories.includes(story.video) ? 'bg-blue-500' : 'bg-red-500'
+              }`}
               onClick={() => handleStoryClick(story.video)}
             >
-              <div className="circle-frame">
+              <div
+                className={`rectangle-frame ${viewedStories.includes(story.video) ? 'gradient-outline' : ''}`}
+              >
                 <img src={story.image} alt="User Avatar" className="w-24 h-24 rounded-full mb-2" />
               </div>
-              <p className="text-sm text-gray-800">{story.user}</p>
+              <p className={`text-sm ${viewedStories.includes(story.video) ? 'text-white' : 'text-gray-800'}`}>
+                {story.user}
+              </p>
             </motion.div>
           ))}
         </div>
