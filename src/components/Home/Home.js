@@ -2,37 +2,110 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useAuth0 } from '@auth0/auth0-react';
 import { BsHeart, BsChat } from 'react-icons/bs';
-import { FiLogOut } from 'react-icons/fi'; 
+import { FiLogOut } from 'react-icons/fi';
 import Logo from '../../assets/logo.png';
 import Suggestions from './Suggestions';
 import Stories from './Stories';
+import { FaHeart } from 'react-icons/fa';
 
 const Home = () => {
   const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
-  const [posts, setPosts] = useState([]);
   const [showLogin, setShowLogin] = useState(true);
- 
+  const [heartFillColor, setHeartFillColor] = useState('blue');
 
   const samplePosts = [
     {
       id: 1,
       user: 'Pratyaksh',
+      image:'https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
       content: 'Just launched my new portfolio website! Check it out!',
     },
     {
       id: 2,
       user: 'Harshvardhan',
+      image:"https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       content: 'Excited to start working on a new React project! 🚀',
     },
     {
       id: 3,
       user: 'Vaishnavi',
+      image:'https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
       content: 'Spent the weekend learning Python. Feeling accomplished!',
+    },
+    {
+      id: 4,
+      user: 'John',
+      image:"https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      content: 'Working on a cool machine learning project. #AI #ML',
+    },
+    {
+      id: 5,
+      user: 'Emily',
+      image:'https://images.unsplash.com/photo-1535303311164-664fc9ec6532?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+      content: 'Celebrating the launch of our new app! 🎉 #AppLaunch',
+    },
+    {
+      id: 6,
+      user: 'Michael',
+      image: 'https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+      content: 'Exploring the world of virtual reality! #VR',
+    },
+    {
+      id: 7,
+      user: 'Sophia',
+      image: 'https://images.unsplash.com/photo-1517433456452-f9633a875f6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80',
+      content: 'Had a great time at the hackathon! #Hackathon',
+    },
+    {
+      id: 8,
+      user: 'Ethan',
+      image:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      content: 'Just got my AWS certification. #AWS #Certified',
+    },
+    {
+      id: 9,
+      user: 'Isabella',
+      image:'https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80',
+      content: 'Learning about blockchain technology. #Blockchain',
+    },
+    {
+      id: 10,
+      user: 'William',
+      image:'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      content: 'Attending a web development conference. #WebDev #Conference',
+    },
+    {
+      id: 11,
+      user: 'Olivia',
+      image:'https://plus.unsplash.com/premium_photo-1679079456083-9f288e224e96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      content: 'Building a chat application using React and Firebase. #React #Firebase',
     },
   ];
 
+
+  const generateRandomLikes = () => Math.floor(Math.random() * 1000) + 1;
+
+  const initialPosts = samplePosts.map((post) => ({
+    ...post,
+    isLiked: false,
+    likes: generateRandomLikes(),
+  }));
+
+  const [posts, setPosts] = useState(initialPosts);
+  const [postLikes, setPostLikes] = useState(initialPosts.map(() => false));
+
+  const handleLikeClick = (postId, index) => {
+    setPostLikes((prevLikes) => {
+      const updatedLikes = [...prevLikes];
+      updatedLikes[index] = !updatedLikes[index];
+      return updatedLikes;
+    });
+
+    setHeartFillColor((prevColor) => (prevColor === 'blue' ? 'red' : 'blue'));
+  };
+
   useEffect(() => {
-    setPosts(samplePosts);
+    setPostLikes(initialPosts.map(() => false));
   }, []);
 
   return (
@@ -80,11 +153,11 @@ const Home = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Stories */}
-      {isAuthenticated && <Stories/>} 
-      
-       {/* Suggestions */}
+      {isAuthenticated && <Stories />}
+
+      {/* Suggestions */}
       {isAuthenticated && <Suggestions />}
 
       {/* Posts */}
@@ -97,7 +170,7 @@ const Home = () => {
             <FiLogOut className="w-6 h-6" />
           </button>
           <div className="container mx-auto grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post) => (
+            {posts.map((post, index) => (
               <motion.div
                 key={post.id}
                 whileHover={{ scale: 1.03, y: -5, boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.1)' }}
@@ -112,14 +185,22 @@ const Home = () => {
                   <span className="text-lg font-semibold ml-2">{post.user}</span>
                 </div>
                 <p className="post-content text-gray-800">{post.content}</p>
+                {post.image && (
+                  <div className="post-image">
+                    <img src={post.image} alt="Post Image" className="w-full h-auto rounded-md mt-4" />
+                  </div>
+                )}
                 <div className="post-actions mt-4 flex items-center">
-                  <button className="flex items-center text-blue-500 font-bold mr-4">
-                    <BsHeart className="mr-1" />
+                  <button
+                    onClick={() => handleLikeClick(post.id, index)}
+                    className={`flex items-center text-${postLikes[index] ? 'red' : 'blue'}-500 font-bold mr-4`}
+                  >
+                    <FaHeart className="mr-1" />
                     Like ({post.likes})
                   </button>
                   <button className="flex items-center text-blue-500 font-bold">
                     <BsChat className="mr-1" />
-                    Comment ({post.comments})
+                    Comment ({Math.floor(Math.random() * 100)})
                   </button>
                 </div>
               </motion.div>

@@ -37,31 +37,33 @@ const UserProfile = () => {
     ];
 
     const generateRandomPosts = () => {
-      const posts = [];
-      const postTypes = ['photo', 'video', 'status'];
-      const postContents = [
-        'Participating in MLH Hackbattle',
-        'Started with Angular JS',
-        'Started with React JS',
-      ];
-
-      for (let i = 0; i < 6; i++) {
-        const randomTypeIndex = Math.floor(Math.random() * postTypes.length);
-        const randomContentIndex = Math.floor(Math.random() * postContents.length);
-        const randomImageIndex = Math.floor(Math.random() * technologyImageUrls.length);
-        const randomVideoIndex = Math.floor(Math.random() * technologyVideoUrls.length);
-  
-        const post = {
-          id: i + 1,
-          type: postTypes[randomTypeIndex],
-          content: postContents[randomContentIndex],
-          imageUrl: technologyImageUrls[randomImageIndex],
-          videoUrl: technologyVideoUrls[randomVideoIndex],
-        };
-        posts.push(post);
-      }
-      setUserPosts(posts);
-    };  
+        const posts = [];
+        const postTypes = ['photo', 'video', 'status'];
+        const postContents = [
+          'Participating in MLH Hackbattle',
+          'Started with Angular JS',
+          'Started with React JS',
+          'Checkout my new blog on html,css and js',
+          'Continuing my 100 days DSA Sprint',
+        ];
+    
+        for (let i = 0; i < 6; i++) {
+          const randomTypeIndex = Math.floor(Math.random() * postTypes.length);
+          const randomContentIndex = Math.floor(Math.random() * postContents.length);
+          const randomImageIndex = Math.floor(Math.random() * technologyImageUrls.length);
+          const randomVideoIndex = Math.floor(Math.random() * technologyVideoUrls.length);
+    
+          const post = {
+            id: i + 1,
+            type: postTypes[randomTypeIndex],
+            content: postContents[randomContentIndex],
+            imageUrl: technologyImageUrls[randomImageIndex],
+            videoUrl: technologyVideoUrls[randomVideoIndex],
+          };
+          posts.push(post);
+        }
+        setUserPosts(posts);
+      };    
 
     const generateRandomStories = () => {
       const stories = [
@@ -208,7 +210,7 @@ const UserProfile = () => {
                   <div className="relative w-full h-32 rounded-lg mb-2 overflow-hidden">
                     <div className="absolute inset-0 bg-black opacity-40" />
                     <video
-                      src="https://www.w3schools.com/html/mov_bbb.mp4"
+                      src={post.videoUrl}
                       controls
                       className="w-full h-full object-cover"
                     />
