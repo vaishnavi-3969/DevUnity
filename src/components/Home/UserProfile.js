@@ -21,6 +21,13 @@ const UserProfile = () => {
       }
     };
     fetchUserData();
+    const technologyVideoUrls = [
+        'https://www.w3schools.com/html/mov_bbb.mp4',
+        'https://www.youtube.com/watch?v=SqcY0GlETPk&pp=ygUIcmVhY3QganM%3D',
+        'https://www.youtube.com/watch?v=gY5sGvq-8h8&pp=ygUIcmVhY3QganM%3D',
+        'https://www.youtube.com/watch?v=RGKi6LSPDLU&pp=ygUIcmVhY3QganM%3D',
+        'https://www.youtube.com/watch?v=edBx-fjgh4k&pp=ygUIcmVhY3QganM%3D',
+    ];
 
     const technologyImageUrls = [
       'https://images.unsplash.com/photo-1671726203454-5d7a5370a9f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxzZWFyY2h8MXx8dGVjaG5vbG9neXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1000&q=60',
@@ -42,35 +49,43 @@ const UserProfile = () => {
         const randomTypeIndex = Math.floor(Math.random() * postTypes.length);
         const randomContentIndex = Math.floor(Math.random() * postContents.length);
         const randomImageIndex = Math.floor(Math.random() * technologyImageUrls.length);
+        const randomVideoIndex = Math.floor(Math.random() * technologyVideoUrls.length);
+  
         const post = {
           id: i + 1,
           type: postTypes[randomTypeIndex],
           content: postContents[randomContentIndex],
           imageUrl: technologyImageUrls[randomImageIndex],
+          videoUrl: technologyVideoUrls[randomVideoIndex],
         };
         posts.push(post);
       }
       setUserPosts(posts);
-    };
+    };  
 
     const generateRandomStories = () => {
-      const stories = [];
-      const storyImageUrls = [
-        'https://images.unsplash.com/photo-1560807707-773fbb6e6d88',
-        'https://images.unsplash.com/photo-1560807708-74220e840d9d',
-        'https://images.unsplash.com/photo-1560807708-1676517d6ef4',
-        'https://images.unsplash.com/photo-1560807708-5cc9e6c1f095',
-        'https://images.unsplash.com/photo-1560807707-587b0e5d11d9',
+      const stories = [
+        {
+          id: 1,
+          imageUrl: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+        },
+        {
+          id: 2,
+          imageUrl: 'https://plus.unsplash.com/premium_photo-1661662822053-399798abee3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80',
+        },
+        {
+          id: 3,
+          imageUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+        },
+        {
+          id: 4,
+          imageUrl: 'https://images.unsplash.com/photo-1568952433726-3896e3881c65?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+        },
+        {
+          id: 5,
+          imageUrl: 'https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+        },
       ];
-
-      for (let i = 0; i < 5; i++) {
-        const randomImageIndex = Math.floor(Math.random() * storyImageUrls.length);
-        const story = {
-          id: i + 1,
-          imageUrl: storyImageUrls[randomImageIndex],
-        };
-        stories.push(story);
-      }
       setUserStories(stories);
     };
 
