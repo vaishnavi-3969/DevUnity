@@ -107,7 +107,7 @@ const Home = () => {
   useEffect(() => {
     setPostLikes(initialPosts.map(() => false));
   }, []);
-
+  
   return (
     <div>
       {/* Hero */}
