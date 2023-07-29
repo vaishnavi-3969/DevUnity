@@ -1,5 +1,5 @@
 import React from "react";
-import { FaUserCircle, FaHome, FaIgloo, FaRocketchat } from "react-icons/fa";
+import { FaUserCircle, FaHome, FaIgloo, FaCode } from "react-icons/fa";
 import ProfileCard from "./ProfileCard";
 
 export default function Sidebar() {
@@ -8,11 +8,11 @@ export default function Sidebar() {
             <div className="flex flex-col h-screen p-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-400 text-white shadow w-60">
                 <div className="space-y-3">
                     <div className="flex items-center py-5 px-2">
-                        <h1 className="text-3xl font-bold">Dashboard</h1>
+                        <h1 className="text-3xl font-bold">My Profile</h1>
                     </div>
                     <div className="flex-1">
-                        <ul className="pt-2 pb-4 space-y-1 text-sm">
-                            <li className="rounded-sm">
+                        <ul className="pt-2 pb-4 space-y-1 text-sm divide-y divide-white-700">
+                            <li className="rounded-sm hover:text-gray-700">
                                 <a
                                     href="#"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
@@ -21,7 +21,7 @@ export default function Sidebar() {
                                     <span>Home</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm hover:text-gray-700">
                                 <a
                                     href="#"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
@@ -32,7 +32,7 @@ export default function Sidebar() {
                                     <span>Edit Profile</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm hover:text-gray-700">
                                 <a
                                     href="#"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
@@ -41,16 +41,16 @@ export default function Sidebar() {
                                     <span>Events and Hackathons</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm hover:text-gray-700">
                                 <a
                                     href="#"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
                                 >
-                                    <FaRocketchat size={20} />
-                                    <span>Chats</span>
+                                    <FaCode size={20} />
+                                    <span>Projects</span>
                                 </a>
                             </li>
-                            <li className="rounded-sm">
+                            <li className="rounded-sm hover:text-gray-700">
                                 <a
                                     href="#"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
