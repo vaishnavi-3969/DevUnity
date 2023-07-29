@@ -4,7 +4,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { BsHeart, BsChat } from 'react-icons/bs';
 import { FiLogOut } from 'react-icons/fi'; 
 import Logo from '../../assets/logo.png';
-import Navbar from './Navbar';
 import Suggestions from './Suggestions';
 import Stories from './Stories';
 
@@ -39,7 +38,7 @@ const Home = () => {
   return (
     <div>
       {/* Hero */}
-      <div className="hero-section bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-20 px-10 relative">
+      <div className="hero-section bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-3 px-10 relative">
         <div className="container mx-auto">
           <div className="text-center">
             <img src={Logo} alt="Logo" className="w-40 md:w-60 h-auto mx-auto mb-6" />
@@ -53,7 +52,7 @@ const Home = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                     onClick={() => loginWithRedirect()}
-                    className="hero-button bg-white text-blue-500 font-bold rounded-full px-6 py-3 mt-6 shadow-lg"
+                    className="hero-button bg-white text-blue-500 font-bold rounded-full px-6 py-3 mt-6 shadow-lg hover:shadow-xl"
                   >
                     Log In
                   </motion.button>
@@ -85,7 +84,7 @@ const Home = () => {
       {/* Stories */}
       {isAuthenticated && <Stories/>} 
       
-       {/* Stories */}
+       {/* Suggestions */}
       {isAuthenticated && <Suggestions />}
 
       {/* Posts */}

@@ -1,7 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.card {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
 .story-video-container {
     position: fixed;
     top: 0;
@@ -36,3 +44,16 @@
     z-index: 1000;
     padding: 5px;
   }
+
+  /* stories */
+.story-card {
+    background-image: linear-gradient(45deg, #FFD700, #FFA500);
+  }
+  
+  .story-card.viewing {
+    background-image: none;
+    background-color: #f0f0f0;
+  }
+  
+
+  
