@@ -35,9 +35,17 @@ export default Code;
   };
 
   return (
-    <div>
-      <Editor code={code} onChange={handleCodeChange} />
-      <button onClick={handleRunCode}>Run Code</button>
+    <div className="bg-gray-900 text-white min-h-screen p-4">
+      <div className="mb-4">
+        <h1 className="text-3xl font-semibold">Code Editor</h1>
+        <Editor code={code} onChange={handleCodeChange} />
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2"
+          onClick={handleRunCode}
+        >
+          Run Code
+        </button>
+      </div>
       <Output output={output} />
     </div>
   );

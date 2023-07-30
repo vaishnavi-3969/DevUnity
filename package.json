@@ -12,8 +12,10 @@
     "@testing-library/user-event": "^13.5.0",
     "auth0": "^3.6.0",
     "axios": "^1.4.0",
+    "codemirror": "^6.0.1",
     "framer-motion": "^10.15.0",
     "mongoose": "^7.4.1",
+    "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-codemirror2": "^7.2.1",
     "react-confetti": "^6.1.0",
@@ -22,6 +24,7 @@
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
+    "react-simple-code-editor": "^0.13.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
