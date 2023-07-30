@@ -1,6 +1,5 @@
 import React from "react";
 import { FaUserCircle, FaHome, FaIgloo, FaCode } from "react-icons/fa";
-import ProfileCard from "./ProfileCard";
 import { Link } from "react-router-dom";
 
 export default function Sidebar() {
