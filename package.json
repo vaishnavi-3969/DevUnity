@@ -17,6 +17,7 @@
     "mongoose": "^7.4.1",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
+    "react-cam-recorder": "^1.11.7",
     "react-codemirror2": "^7.2.1",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",

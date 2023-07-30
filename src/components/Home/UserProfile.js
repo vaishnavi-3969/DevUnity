@@ -23,10 +23,10 @@ const UserProfile = () => {
     fetchUserData();
     const technologyVideoUrls = [
         'https://www.w3schools.com/html/mov_bbb.mp4',
-        'https://www.youtube.com/watch?v=SqcY0GlETPk&pp=ygUIcmVhY3QganM%3D',
-        'https://www.youtube.com/watch?v=gY5sGvq-8h8&pp=ygUIcmVhY3QganM%3D',
-        'https://www.youtube.com/watch?v=RGKi6LSPDLU&pp=ygUIcmVhY3QganM%3D',
-        'https://www.youtube.com/watch?v=edBx-fjgh4k&pp=ygUIcmVhY3QganM%3D',
+        // 'https://www.youtube.com/watch?v=SqcY0GlETPk&pp=ygUIcmVhY3QganM%3D',
+        // 'https://www.youtube.com/watch?v=gY5sGvq-8h8&pp=ygUIcmVhY3QganM%3D',
+        // 'https://www.youtube.com/watch?v=RGKi6LSPDLU&pp=ygUIcmVhY3QganM%3D',
+        // 'https://www.youtube.com/watch?v=edBx-fjgh4k&pp=ygUIcmVhY3QganM%3D',
     ];
 
     const technologyImageUrls = [
