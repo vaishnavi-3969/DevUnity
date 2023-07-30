@@ -10,6 +10,7 @@ import {
   faHeart,
   faCode,
   faBook,
+  faAtlas,
 } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../assets/logo.png';
 
@@ -77,8 +78,8 @@ const Navbar = () => {
             to="/learn"
             className="flex items-center text-gray-300 hover:text-white mr-4 md:text-lg md:mr-6 transform hover:scale-110"
           >
-            <FontAwesomeIcon icon={faBook} className="mr-2" />
-            Learn
+            <FontAwesomeIcon icon={faAtlas} className="mr-2" />
+            DevReels
           </Link>
         </div>
       </div>
