@@ -34,11 +34,11 @@ export default function Sidebar() {
                             </li>
                             <li className="rounded-sm hover:text-gray-700">
                                 <Link
-                                    to="#"
+                                    to="/events"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
                                 >
                                     <FaIgloo size={20} />
-                                    <span>Events and Hackathons</span>
+                                    <span>My Hackathons</span>
                                 </Link>
                             </li>
                             <li className="rounded-sm hover:text-gray-700">
