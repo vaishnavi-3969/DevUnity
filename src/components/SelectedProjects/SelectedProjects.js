@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Project = (props) => {
+const SelectedProjects = (props) => {
    
     const {person,setProjects,projects,remove}=props;
-    const [selected,setSelected]=React.useState(false);
+    const [selected,setSelected]=React.useState(true);
     selected? console.log("selected") : console.log("add");
     
     
@@ -28,4 +28,4 @@ const Project = (props) => {
   )
 }
 
-export default Project
+export default SelectedProjects
