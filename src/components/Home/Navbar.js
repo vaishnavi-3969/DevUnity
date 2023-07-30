@@ -60,11 +60,11 @@ const Navbar = () => {
             Upload
           </Link>
           <Link
-            to="/likes"
+            to="/project_showcase"
             className="flex items-center text-gray-300 hover:text-white mr-4 md:text-lg md:mr-6 transform hover:scale-110"
           >
             <FontAwesomeIcon icon={faHeart} className="mr-2" />
-            Likes
+            Spotlight
           </Link>
           <Link
             to="/code"
