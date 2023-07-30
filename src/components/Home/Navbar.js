@@ -71,7 +71,7 @@ const Navbar = () => {
             className="flex items-center text-gray-300 hover:text-white mr-4 md:text-lg md:mr-6 transform hover:scale-110"
           >
             <FontAwesomeIcon icon={faCode} className="mr-2" />
-            Code
+            Sandbox
           </Link>
           <Link
             to="/learn"
