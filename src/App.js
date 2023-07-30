@@ -10,11 +10,8 @@ import Notifications from "./components/Notifications/Notifications";
 import Upload from "./components/Uploads/Upload";
 import ProjectShowcase from "./components/Project_Showcase/ProjectShowcase";
 import Code from "./components/Code/Code";
-<<<<<<< HEAD
 import Events from "./components/Events/Events";
-=======
 import DevReels from "./components/Reels/DevReels";
->>>>>>> 076c1df38efcfc979fede3664132d1e31fa71036
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -33,11 +30,7 @@ function App() {
           <Route path="/project_showcase" element={<ProjectShowcase/>} exact/>
           <Route path="/code" element={<Code/>} exact/>
           <Route path="/projects" element={<Projects/>} exact/>
-<<<<<<< HEAD
-          <Route path="/events" element={<Events/>} exact/>
-=======
           <Route path="/devreels" element={<DevReels/>} exact/>
->>>>>>> 076c1df38efcfc979fede3664132d1e31fa71036
         </Routes>
         <div>
           {isAuthenticated && <Navbar/>}
