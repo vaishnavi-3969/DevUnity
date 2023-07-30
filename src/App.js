@@ -31,6 +31,7 @@ function App() {
           <Route path="/code" element={<Code/>} exact/>
           <Route path="/projects" element={<Projects/>} exact/>
           <Route path="/devreels" element={<DevReels/>} exact/>
+          <Route path="/events" element={<Events/>} exact/>
         </Routes>
         <div>
           {isAuthenticated && <Navbar/>}
