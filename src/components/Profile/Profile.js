@@ -21,21 +21,7 @@ const Profile = () => {
         </div>
 
 
-        <div class="listing-container">
-          <form class="inputs-container">
-            
-            <input type="text" name="cpt-title" class="simple-input" placeholder="Nom de la sauce" autocomplete="none" />
-            
-            
-            <span data-label="Qu'avez-vous mélangé comme sauce ?">
-              <input type="text" placeholder="Ajouter une sauce" class="js-sauce-name" />
-            </span>
-
-            <span class="js-add-sauce">
-              <a href="#addSauce"><i class="icon icon-add"></i></a>
-            </span>
-          </form>
-        </div>
+        
       </section>
     )  
   );
