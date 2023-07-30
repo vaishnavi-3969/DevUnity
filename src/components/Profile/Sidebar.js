@@ -1,6 +1,7 @@
 import React from "react";
 import { FaUserCircle, FaHome, FaIgloo, FaCode } from "react-icons/fa";
 import ProfileCard from "./ProfileCard";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
     return (
@@ -13,46 +14,46 @@ export default function Sidebar() {
                     <div className="flex-1">
                         <ul className="pt-2 pb-4 space-y-1 text-sm divide-y divide-white-700">
                             <li className="rounded-sm hover:text-gray-700">
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
                                 >
                                     <FaHome size={20}/>
                                     <span>Home</span>
-                                </a>
+                                </Link>
                             </li>
                             <li className="rounded-sm hover:text-gray-700">
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
                                 >
                                 
                                     <FaUserCircle size={20}/>
                                         
                                     <span>Edit Profile</span>
-                                </a>
+                                </Link>
                             </li>
                             <li className="rounded-sm hover:text-gray-700">
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
                                 >
                                     <FaIgloo size={20} />
                                     <span>Events and Hackathons</span>
-                                </a>
+                                </Link>
                             </li>
                             <li className="rounded-sm hover:text-gray-700">
-                                <a
-                                    href="#"
+                                <Link
+                                    to="/projects"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
                                 >
                                     <FaCode size={20} />
                                     <span>Projects</span>
-                                </a>
+                                </Link>
                             </li>
                             <li className="rounded-sm hover:text-gray-700">
-                                <a
-                                    href="#"
+                                <Link
+                                    to="#"
                                     className="flex items-center p-2 space-x-3 rounded-md cursor-pointer"
                                 >
                                     <svg
@@ -70,7 +71,7 @@ export default function Sidebar() {
                                         />
                                     </svg>
                                     <span>Sign out</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>

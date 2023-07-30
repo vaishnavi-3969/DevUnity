@@ -9,7 +9,7 @@ import Explore from "./components/Explore/Explore";
 import Notifications from "./components/Notifications/Notifications";
 import Upload from "./components/Uploads/Upload";
 import ProjectShowcase from "./components/Project_Showcase/ProjectShowcase";
-import CodePage from "./components/Code/CodePage";
+import Code from "./components/Code/Code";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -26,7 +26,8 @@ function App() {
           <Route path="/notifications" element={<Notifications/>} exact/>
           <Route path="/upload" element={<Upload/>} exact/>
           <Route path="/project_showcase" element={<ProjectShowcase/>} exact/>
-          <Route path="/code" element={<CodePage/>} exact/>
+          <Route path="/code" element={<Code/>} exact/>
+          <Route path="/projects" element={<Projects/>} exact/>
         </Routes>
         <div>
           {isAuthenticated && <Navbar/>}
