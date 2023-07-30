@@ -10,6 +10,7 @@ import Notifications from "./components/Notifications/Notifications";
 import Upload from "./components/Uploads/Upload";
 import ProjectShowcase from "./components/Project_Showcase/ProjectShowcase";
 import Code from "./components/Code/Code";
+import DevReels from "./components/Reels/DevReels";
 
 function App() {
   const { isAuthenticated } = useAuth0();
@@ -28,6 +29,7 @@ function App() {
           <Route path="/project_showcase" element={<ProjectShowcase/>} exact/>
           <Route path="/code" element={<Code/>} exact/>
           <Route path="/projects" element={<Projects/>} exact/>
+          <Route path="/devreels" element={<DevReels/>} exact/>
         </Routes>
         <div>
           {isAuthenticated && <Navbar/>}
