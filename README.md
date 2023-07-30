@@ -1,6 +1,6 @@
 <div align='center'>
   <h1>DevUnity</h1>
-  <img src = "https://github.com/vaishnavi-3969/Hackbattle-DevUnity/assets/80088403/3afd4919-4280-465f-b42c-6c1d4217e257"/>
+  <img src = "https://github.com/vaishnavi-3969/Hackbattle-DevUnity/assets/80088403/3afd4919-4280-465f-b42c-6c1d4217e257" height="300"/>
   <hr/>
    <p align='left'>
      <ul align='left'>
