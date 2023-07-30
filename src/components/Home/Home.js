@@ -107,52 +107,97 @@ const Home = () => {
   useEffect(() => {
     setPostLikes(initialPosts.map(() => false));
   }, []);
-  
+  // Animation for greeting
+const greetingAnimation = {
+  initial: { opacity: 0, y: -30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 1, delay: 0.5 },
+};
+
+// Animation for sparkles
+const sparkleAnimation = {
+  initial: { opacity: 0, y: -10 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6, delay: 1 },
+};
+
   return (
     <div>
       {/* Hero */}
       <div className="hero-section bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white py-3 px-10 relative">
-        <div className="container mx-auto">
-          <div className="text-center">
-            <img src={Logo} alt="Logo" className="w-40 md:w-60 h-auto mx-auto mb-6" />
-            {showLogin ? (
-              <>
-                <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to DevUnity</h1>
-                <p className="text-lg mt-4">A social media platform for developers</p>
-                {!isAuthenticated && (
-                  <motion.button
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    onClick={() => loginWithRedirect()}
-                    className="hero-button bg-white text-blue-500 font-bold rounded-full px-6 py-3 mt-6 shadow-lg hover:shadow-xl"
-                  >
-                    Log In
-                  </motion.button>
-                )}
-              </>
-            ) : (
-              isAuthenticated && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="user-info"
-                >
-                  <img src={user.picture} alt="User Avatar" className="w-12 h-12 rounded-full inline-block" />
-                  <span className="text-lg font-bold ml-2">{user.name}</span>
-                  <button
-                    onClick={() => logout({ returnTo: window.location.origin })}
-                    className="text-sm font-semibold text-gray-500 hover:text-gray-800 ml-4"
-                  >
-                    Log Out
-                  </button>
-                </motion.div>
-              )
-            )}
-          </div>
-        </div>
-      </div>
+  <div className="container mx-auto">
+    <div className="text-center">
+      <img src={Logo} alt="Logo" className="w-40 md:w-60 h-auto mx-auto mb-6" />
+      {showLogin ? (
+        <>
+          {isAuthenticated && (
+            <motion.h1
+              className="text-2xl md:text-4xl font-bold mb-2"
+              initial={greetingAnimation.initial}
+              animate={greetingAnimation.animate}
+              transition={greetingAnimation.transition}
+            >
+              Hello {user.name},
+            </motion.h1>
+          )}
+          <motion.h1
+            className="text-4xl md:text-6xl font-bold mb-4"
+            initial={greetingAnimation.initial}
+            animate={greetingAnimation.animate}
+            transition={greetingAnimation.transition}
+          >
+            Welcome to DevUnity
+          </motion.h1>
+          <motion.p
+            className="text-lg mt-4"
+            initial={greetingAnimation.initial}
+            animate={greetingAnimation.animate}
+            transition={greetingAnimation.transition}
+          >
+            A social media platform for developers
+          </motion.p>
+          {!isAuthenticated && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              onClick={() => loginWithRedirect()}
+              className="hero-button bg-white text-blue-500 font-bold rounded-full px-6 py-3 mt-6 shadow-lg hover:shadow-xl"
+            >
+              Log In
+            </motion.button>
+          )}
+        </>
+      ) : (
+        isAuthenticated && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="user-info"
+          >
+            <img src={user.picture} alt="User Avatar" className="w-12 h-12 rounded-full inline-block" />
+            <span
+              className="text-lg font-bold ml-2"
+              initial={sparkleAnimation.initial}
+              animate={sparkleAnimation.animate}
+              transition={sparkleAnimation.transition}
+            >
+              {user.name}
+            </span>
+            <button
+              onClick={() => logout({ returnTo: window.location.origin })}
+              className="text-sm font-semibold text-gray-500 hover:text-gray-800 ml-4"
+            >
+              Log Out
+            </button>
+          </motion.div>
+        )
+      )}
+    </div>
+  </div>
+</div>
+
 
       {/* Stories */}
       {isAuthenticated && <Stories />}

@@ -166,8 +166,8 @@ const ProjectShowcase = () => {
         </div>
       </div>
 
-        {/* DevRank */}
-      <div className="container mx-auto my-8">
+       {/* DevRank */}
+       <div className="container mx-auto my-8">
         <h2 className="text-2xl font-semibold mb-4 text-white">DevRank</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {devRankData.map((user, index) => (
@@ -227,29 +227,38 @@ const ProjectShowcase = () => {
         </div>
       </div>
 
-      {/* Additional Text and Creative Elements */}
-      <div className="text-center my-8">
-        <h2 className="text-3xl font-semibold text-white mb-4">Earn Verifiable Reputation</h2>
-        <p className="text-lg text-gray-300 mb-6">
-          Showcase your coding skills and join the community of developers. Complete challenges,
-          contribute to open-source projects, and earn reputation points!
-        </p>
-        <motion.a
-          href="https://github.com/vaishnavi-3969/Garden-Connect"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-yellow-400 hover:sparkle text-white font-bold py-3 px-6 rounded-full text-lg shadow-md"
-          whileHover={{ scale: 1.05 }}
-          variants={{
-            sparkle: {
-              backgroundImage: secondaryButtonColor,
-              boxShadow: '0px 0px 20px 3px rgba(255, 255, 255, 1)',
-            },
-          }}
-        >
-          Join Now!
-        </motion.a>
-      </div>
+
+      {showConfetti && (
+        <Confetti
+          width={window.innerWidth}
+          height={window.innerHeight}
+          recycle={false}
+        />
+      )}
+
+      {uploadSuccess && (
+        <div className="fixed bottom-0 right-0 m-4 p-4 bg-white shadow-lg rounded-lg z-50">
+          <div className="flex items-center">
+            <div className="mr-3">
+              {user && user.picture && (
+                <img
+                  src={user.picture}
+                  alt="User Avatar"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+              )}
+            </div>
+            <div>
+              {user && user.name && (
+                <>
+                  <p className="font-semibold text-blue-500">{user.name}</p>
+                  <p>Successfully uploaded your post!</p>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
